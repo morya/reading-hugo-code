@@ -1,0 +1,22 @@
+site_name: HugoCode笔记
+
+theme: readthedocs
+
+pages:
+    - Home: index.md
+    - 构建项目: 01-build.md
+    - 功能解析: 02-functions.md
+    - 代码结构: 03-folder-hierachy.md
+    - 代码初始化:
+        - main函数 和 sub-command: 041-sub-cmd.md
+        - Dep: 042-dep.md
+#   - TODO
+#       - main函数初始化
+#       - hugo subcmd
+#       - hugo new site 流程
+#       - hugo new `<post>` 流程
+#       - hugo template
+#       - hugo shortcode
+#       - hugo build 流程
+#       - hugo serve 流程
+      
