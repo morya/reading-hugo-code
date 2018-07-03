@@ -182,12 +182,12 @@ func (b *commandsBuilder) addAll() *commandsBuilder {
 
 ```golang
 type baseCmd struct {
-	cmd *cobra.Command
+    cmd *cobra.Command
 }
 
 type baseBuilderCmd struct {
-	*baseCmd
-	*commandsBuilder
+    *baseCmd
+    *commandsBuilder
 }
 
 
@@ -251,31 +251,31 @@ commandsBuilder --create-> &serverCmd {
 
 ```golang
 func (b *commandsBuilder) newServerCmd() *serverCmd {
-	return b.newServerCmdSignaled(nil)
+    return b.newServerCmdSignaled(nil)
 }
 
 func (b *commandsBuilder) newServerCmdSignaled(stop <-chan bool) *serverCmd {
     cc := &serverCmd{stop: stop}
 
-	cc.baseBuilderCmd = b.newBuilderCmd(&cobra.Command{
-		Use:     "server",
-		Aliases: []string{"serve"},
-		Short:   "A high performance webserver",
-		Long: `Hugo provides its own webserver which builds and serves the site.
+    cc.baseBuilderCmd = b.newBuilderCmd(&cobra.Command{
+        Use:     "server",
+        Aliases: []string{"serve"},
+        Short:   "A high performance webserver",
+        Long: `Hugo provides its own webserver which builds and serves the site.
 While hugo server is high performance, .......`,
-		RunE: cc.server,
-	})
+        RunE: cc.server,
+    })
 
     cc.cmd.Flags().IntVarP(&cc.serverPort, "port", "p", 1313, "port on which the server will listen")
-	cc.cmd.Flags().IntVar(&cc.liveReloadPort, "liveReloadPort", -1, "port for live reloading (i.e. 443 in HTTPS proxy situations)")
+    cc.cmd.Flags().IntVar(&cc.liveReloadPort, "liveReloadPort", -1, "port for live reloading (i.e. 443 in HTTPS proxy situations)")
 
     // ...
 }
 
 func (b *commandsBuilder) newBuilderCmd(cmd *cobra.Command) *baseBuilderCmd {
-	bcmd := &baseBuilderCmd{commandsBuilder: b, baseCmd: &baseCmd{cmd: cmd}}
-	bcmd.hugoBuilderCommon.handleFlags(cmd)
-	return bcmd
+    bcmd := &baseBuilderCmd{commandsBuilder: b, baseCmd: &baseCmd{cmd: cmd}}
+    bcmd.hugoBuilderCommon.handleFlags(cmd)
+    return bcmd
 }
 ```
 
@@ -299,7 +299,8 @@ func (b *commandsBuilder) build() *hugoCmd {
 
 ### 继承图
 
-```
+```text
+
 cobra.Command
 baseCmd             cmder                   hugoBuilderCommon
 |                   |                       |
