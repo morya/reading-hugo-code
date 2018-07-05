@@ -2,14 +2,22 @@ site_name: HugoCode笔记
 
 theme: readthedocs
 
+markdown_extensions:
+    - smarty
+    - toc:
+        permalink: True
+    - sane_lists
+
 pages:
     - Home: index.md
     - 构建项目: 01-build.md
     - 功能解析: 02-functions.md
     - 代码结构: 03-folder-hierachy.md
     - 代码初始化:
-        - main函数 和 sub-command: 041-sub-cmd.md
-        - Dep: 042-dep.md
+        - main函数 和 sub-command: 04.01-sub-cmd.md
+        - hugoCmd: 04.01.01-hugocmd.md
+        - serverCmd: 04.01.02-servercmd.md
+        - Dep: 04.02-dep.md
 #   - TODO
 #       - main函数初始化
 #       - hugo subcmd
@@ -19,4 +27,3 @@ pages:
 #       - hugo shortcode
 #       - hugo build 流程
 #       - hugo serve 流程
-      
